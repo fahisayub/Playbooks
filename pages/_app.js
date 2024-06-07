@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from '../store';
-import { NextUIProvider, createTheme } from '@nextui-org/react';
+import { NextUIProvider } from '@nextui-org/react';
 
-const theme = createTheme({
+const theme = {
   type: 'light', // or 'dark'
   theme: {
     colors: {
@@ -16,7 +16,7 @@ const theme = createTheme({
     space: {},
     fonts: {},
   },
-});
+};
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
