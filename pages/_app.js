@@ -44,14 +44,20 @@ function MyApp({ Component, pageProps }) {
     }
 
     // Request permission for push notifications
-    messaging.requestPermission().then(() => {
-      console.log('Notification permission granted.');
-      return messaging.getToken();
-    }).then((token) => {
-      console.log('FCM Token:', token);
-      // Send the token to your server to save it and use it to send push notifications
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        console.log('Notification permission granted.');
+        messaging.getToken().then((token) => {
+          console.log('FCM Token:', token);
+          // Send the token to your server to save it and use it to send push notifications
+        }).catch((error) => {
+          console.log('Error getting FCM token:', error);
+        });
+      } else {
+        console.log('Notification permission denied.');
+      }
     }).catch((error) => {
-      console.log('Error getting FCM token:', error);
+      console.log('Error requesting notification permission:', error);
     });
 
     // Handle incoming messages when the app is in the foreground
