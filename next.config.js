@@ -1,6 +1,7 @@
 const withOffline = require('next-offline');
 
 module.exports = withOffline({
+  generateInDevMode: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
     runtimeCaching: [
@@ -21,5 +22,4 @@ module.exports = withOffline({
       },
     ],
   },
-  // Other Next.js options here
 });
