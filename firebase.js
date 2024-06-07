@@ -11,7 +11,11 @@ const firebaseConfig = {
   measurementId: "YOUR_MEASUREMENT_ID"
 };
 
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+let messaging;
+
+if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+  const app = initializeApp(firebaseConfig);
+  messaging = getMessaging(app);
+}
 
 export { messaging };

@@ -62,6 +62,7 @@ function MyApp({ Component, pageProps }) {
       });
 
       // Handle incoming messages when the app is in the foreground
+      /*
       messaging.onMessage((payload) => {
         console.log('Message received. ', payload);
         // Customize notification here
@@ -75,6 +76,7 @@ function MyApp({ Component, pageProps }) {
           new Notification(notificationTitle, notificationOptions);
         }
       });
+      */
     }
   }, []);
 
