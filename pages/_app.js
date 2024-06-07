@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
       console.log('Service Worker is supported');
       window.addEventListener('load', () => {
         console.log('Window load event triggered');
-        navigator.serviceWorker.register('/service-worker.js').then(
+        navigator.serviceWorker.register('/firebase-messaging-sw.js').then(
           (registration) => {
             console.log('Service Worker registered with scope:', registration.scope);
           },
