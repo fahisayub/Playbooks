@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from '../store';
 import { NextUIProvider, createTheme } from '@nextui-org/react';
@@ -18,6 +19,21 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(
+          (registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          },
+          (error) => {
+            console.log('Service Worker registration failed:', error);
+          }
+        );
+      });
+    }
+  }, []);
+
   return (
     <Provider store={store}>
       <NextUIProvider theme={theme}>
