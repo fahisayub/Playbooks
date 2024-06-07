@@ -1,12 +1,12 @@
-import { Button, Card, Text } from '@nextui-org/react';
+import { Button, Card } from '@nextui-org/react';
 
 const TestNextUI = () => {
   return (
     <div style={{ padding: '20px' }}>
       <Card>
         <Card.Body>
-          <Text h1>NextUI Test Page</Text>
-          <Text>This is a test page to verify NextUI components.</Text>
+          <h1>NextUI Test Page</h1>
+          <p>This is a test page to verify NextUI components.</p>
           <Button>Click Me</Button>
         </Card.Body>
       </Card>
